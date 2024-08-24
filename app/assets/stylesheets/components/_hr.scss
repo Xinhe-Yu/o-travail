@@ -1,0 +1,16 @@
+hr {
+  border: none;
+  border-top: 1px solid $gray;
+  color: $gray;
+  overflow: visible;
+  text-align: center;
+  height: 5px;
+}
+
+hr.inscription::after {
+  background: $light-gray;
+  content: 'Pas encore de compte O\'Travail ?';
+  padding: 0 4px;
+  position: relative;
+  top: -13px;
+}

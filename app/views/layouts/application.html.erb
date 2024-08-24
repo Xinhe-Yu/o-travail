@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>OTravail</title>
+    <title>O'Travail</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <%= favicon_link_tag 't_circle_outline_icon.svg' %>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -10,9 +11,12 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body><%= render "shared/navbar" %>
-<%= render "shared/flashes" %>
-
-    <%= yield %>
+  <body>
+    <%= render "shared/navbar" %>
+    <%= render "shared/flashes" %>
+    <div class="container my-3">
+      <%= yield %>
+    </div>
+    <%= render "shared/footer" %>
   </body>
 </html>

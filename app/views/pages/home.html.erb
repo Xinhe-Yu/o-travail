@@ -1,42 +1,42 @@
-<h1 class="fw-bolder">O'Travail</h1>
-<h3 class="fw-semibold mb-5">Le Code du travail à portée de main !</h3>
+<div class="m-8 d-none d-xl-block"></div>
+<h2 class="fw-bold my-5 text-center"><span class="text-primary">Code du travail</span> à portée de main</h2>
+<h4 class="mb-5">Accédez facilement aux textes du Code du travail et obtenez des réponses personnalisées grâce à notre moteur de recherche avancé.</h4>
+<%= render "shared/search_bar" %>
 
-<%= form_with url:"#", method: :get, class:"form-search mb-5" do %>
-  <div class="input-group">
-    <span class="input-group-text" style="padding-right:0.125rem;border-right:none;background:none;">
-      <i class="fa-solid fa-magnifying-glass text-primary"></i>
-    </span>
-    <%= text_field_tag :key_word,
-      params[:key_word],
-      class: "form-control ps-1",
-      style: "border-left:none;text-overflow: ellipsis",
-      placeholder: "Mot-clé, référence, terme..." %>
-      <%= submit_tag "Rechercher", name:"",
-      class: "input-group-text btn btn-primary"%>
-  </div>
-<% end %>
+<div class="p-3 border border-2  mb-5 rounded trend">
+  <i class="fa-solid fa-arrow-trend-up text-primary"></i>
+  Explorez des thèmes comme : <br>
+  <% keywords = ["congés payés", "démission", "L.1221-1", "grève", "CPF"] %>
+  <% keywords.each do |keyword| %>
+    <%= link_to "/articles?key_word=#{keyword}", class:"no-a-style" do %>
+      <span class="badge bg-primary-subtle text-primary"><%= keyword %></span>
+    <% end %>
+  <% end %>
+</div>
 
-<div class="row">
+<div class="row cards">
   <div class="col-6">
-    <div class="pe-3 h-100">
-      <div class="card text-center p-3">
+    <%= link_to "#", class:"no-a-style" do %>
+      <div class="card h-100 border border-2 text-center p-3">
         <div class="card-title text-center fs-1 text-secondary">
           <i class="fa-regular fa-comments"></i>
         </div>
-        <h6 class="card-subtitle fw-semibold">Je veux des réponses <div class="display-inline">sur-mesure</div></h6>
+        <h6 class="card-subtitle fw-semibold">
+          Je veux des réponses
+          <div class="display-inline">sur-mesure</div>
+        </h6>
       </div>
-    </div>
+    <% end %>
   </div>
   <div class="col-6">
-    <div class="h-100">
-      <div class="card text-center h-100 p-3">
+    <%= link_to "#", class:"no-a-style" do %>
+      <div class="card h-100 border border-2 text-center p-3">
         <div class="card-title text-center fs-1 text-secondary">
           <i class="fa-solid fa-folder-open"></i>
         </div>
         <h6 class="card-subtitle fw-semibold">Je veux consulter <div class="display-inline">en catégorie</div></h6>
       </div>
-    </div>
+    <% end %>
   </div>
-
 
 </div>

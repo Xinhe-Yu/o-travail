@@ -1,0 +1,17 @@
+a .card,
+a .card i,
+a .card h6 {
+  transition: all ease 0.5s;
+}
+
+a:hover .card {
+  border: 2px solid $secondary !important;
+}
+
+a:hover .card i {
+  color: tint-color($secondary, 25%);
+}
+
+a:hover .card h6 {
+  color: $secondary;
+}

@@ -14,3 +14,11 @@ hr.inscription::after {
   position: relative;
   top: -13px;
 }
+
+hr.connection::after {
+  background: $light-gray;
+  content: 'Déjà un compte O\'Travail ?';
+  padding: 0 4px;
+  position: relative;
+  top: -13px;
+}

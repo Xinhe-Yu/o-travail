@@ -1,0 +1,55 @@
+<% profession = ["Employé", "Employeur / Responsable RH", "Avocat / Conseiller Juridique", "Syndicaliste / Représentant du Personnel"] %>
+<% terminology_preference = ["Accessible / Simplifié", "Juridique / Technique", "Historique / Contextuel"] %>
+<% experience = ["Débutant", "Professionnels Expérimentés"] %>
+
+<div class="row justify-content-center">
+  <div class="col-xl-8">
+    <h2>Complétez votre profil</h2>
+    <%= simple_form_for(@user_profile,
+                        url: user_profiles_path,
+                        method: :post) do |f| %>
+      <div class="form-group mb-3">
+        <% default_date = 14.years.ago.to_date %>
+        <%= f.label :birthday, class:"form-label" %>
+        <div class="form-control date-select">
+            <%= f.date_select :birthday, start_year: Time.current.year - 120, end_year: Time.current.year - 14, default: default_date, order: [:day, :month, :year] %>
+        </div>
+
+      </div>
+
+      <div class="form-group mb-3">
+        <%= f.label :profession, class:"form-label" %>
+        <div class="form-control">
+          <% profession.each_with_index do |status, index| %>
+            <%= f.radio_button :profession, index, id: "profession_#{index}", class:"btn-check" %>
+            <%= f.label "profession_#{index}", status, class: "btn btn-outline-primary my-1", for: "profession_#{index}" %>
+          <% end %>
+        </div>
+      </div>
+
+      <div class="form-group mb-3">
+        <%= f.label :experience, class:"form-label" %>
+        <div class="form-control">
+          <% experience.each_with_index do |status, index| %>
+            <%= f.radio_button :experience, index, id: "experience_#{index}", class:"btn-check" %>
+            <%= f.label "experience_#{index}", status, class: "btn btn-outline-primary my-1", for: "experience_#{index}" %>
+          <% end %>
+        </div>
+      </div>
+
+      <div class="form-group mb-3">
+        <%= f.label :terminology_preference, class:"form-label" %>
+        <div class="form-control">
+          <% terminology_preference.each_with_index do |status, index| %>
+            <%= f.radio_button :terminology_preference, index, id: "terminology_preference_#{index}", class:"btn-check" %>
+            <%= f.label "terminology_preference_#{index}", status, class: "btn btn-outline-primary my-1", for: "terminology_preference_#{index}" %>
+          <% end %>
+        </div>
+      </div>
+            <div class="form-actions">
+        <%= f.button :submit, "Sauvegarder",
+        class:"btn btn-primary w-100" %>
+      </div>
+    <% end %>
+  </div>
+</div>

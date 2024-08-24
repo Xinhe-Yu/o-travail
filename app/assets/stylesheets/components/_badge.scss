@@ -1,0 +1,9 @@
+.trend span {
+  transition: all ease 0.5s;
+  border: solid 2px transparent;
+}
+
+.trend span:hover {
+  border: solid 2px rgba($primary, 0.85);
+  background-color: rgba(var(--bs-success-bg-subtle), 0.85) !important;
+}

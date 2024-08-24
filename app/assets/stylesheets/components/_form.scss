@@ -23,18 +23,46 @@ legend ~ div.form-check:first-of-type {
 
 .input-group .form-control,
 .input-group .input-group-text {
-  // Remove the outline and focus styles from the input itself
   outline: none;
   box-shadow: none;
-  border-color: transparent; // Remove any border color on focus
+  border-color: transparent;
+
 
   &:focus {
-    outline: none; // Ensure no outline on focus
-    box-shadow: none; // Prevent any shadow from appearing on focus
+    outline: none;
+    box-shadow: none;
   }
 
   &:focus-visible {
-    outline: none; // Ensure no outline on focus-visible
-    box-shadow: none; // Prevent any shadow on focus-visible
+    outline: none;
+    box-shadow: none;
   }
+}
+
+.input-group .input-group-text:first-child {
+  background-color: transparent;
+  padding-right: 0.125rem;
+  border-right: none;
+}
+
+.form-search {
+  position: relative;
+}
+
+.search-container {
+  display: none;
+  position: absolute;
+  z-index: 1000;
+  background-color: rgba($light-gray, 0.8);
+}
+
+.form-search:focus-within .search-container {
+  display: block;
+}
+
+.form-control.date-select select {
+  border: 1px solid $primary;
+  padding: 8px;
+  color: $primary;
+  border-radius: 4px;
 }

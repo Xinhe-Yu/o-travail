@@ -1,36 +1,76 @@
 <div class="container pt-3">
   <%= render "shared/search_bar", search_word: @search_word %>
 
-  <% if true %>
+  <% if @length == 0 %>
+    <div class="text-center">
+      <p class="fs-7 fw-bold">Aucun résultat ne correspond à votre recherche !</p>
+      <p class="mb-1">Essayez un autre terme de recherche</p>
+      <p class="my-1">ou</p>
+      <a class="mt-1 btn btn-outline-primary fw-semibold">Laissez notre AI vous guider vers des réponses précises</a>
+    </div>
+  <% else %>
 
     <% plural_s = @length > 1 ? "s" : "" %>
-    <p> <%= "#{@articles.length} résultat#{plural_s} trouvé#{plural_s}" %></p>
+    <p> <%= "#{@length} résultat#{plural_s} trouvé#{plural_s}" %> <span class=>dans le Code du Travail</span> </p>
 
     <ul class="list-strip">
-      <% @title = "Titre V : Articulation des conventions et accords ; Chapitre IV : Rapports entre conventions et accords collectifs de travail et contrat de travail" %>
-      <% @number = "D2254-24"  %>
-      <% @html = "<p align='left'>Le bénéficiaire du parcours d'accompagnement personnalisé qui, au terme de celui-ci est à la recherche d'un emploi, peut bénéficier de l'allocation d'assurance mentionnée à l'article <a href='/affichCodeArticle.do?cidTexte=LEGITEXT000006072050&idArticle=LEGIARTI000006903819&dateTexte=&categorieLien=cid'>L. 5421-1 </a> conformément aux accords mentionnés à l'article <a href='/affichCodeArticle.do?cidTexte=LEGITEXT000006072050&idArticle=LEGIARTI000006903842&dateTexte=&categorieLien=cid'>L. 5422-20</a>. <br/><br/>La durée d'indemnisation dont bénéficie l'intéressé dans ce cadre est réduite du nombre de jours indemnisés au titre du parcours d'accompagnement personnalisé.</p>" %>
+      <% @articles.each do |art| %>
+      <li data-controller="article" class="py-3 collapsed" data-action="click->article#toggleButton">
+          <button class="toggle-button" data-article-target="button">
+            <i class="fa-regular fa-circle-down icon-down"></i>
+            <i class="fa-regular fa-circle-up icon-up"></i>
+          </button>
+
+          <h5 class="fw-bold">
+            <%= art.art_num %>
+            <% unless art.status %>
+              <span class='text-danger-emphasis'> (abrogé) </span>
+            <% end %>
+          </h5>
+          <% path = art.loc.length > 2 ? art.loc[2..-1].map { |str| str.split(":")[0] } : art.loc.map { |str| str.split(":")[0] } %>
+          <% path = path.join(" - ") %>
+          <p class="fs-7 text-black-50 mb-2"><%= path %></p>
+          <h5 class="text-primary fw-semibold"><%= art.title %></h5>
 
 
-      <li data-controller="show-article">
-        <h5 class="fw-bold"><%= @number %></h5>
-        <p class="fs-7 text-black-50 mb-2">Livre II - Titre V - Chapitre IV</p>
-        <h5 class="text-primary fw-semibold">Rapports entre conventions et accords collectifs de travail et contrat de travail</h5>
-        <%= @html.html_safe %>
+        <div data-article-target="text" class="text-content">
+          <%= art.text.html_safe %>
+        </div>
+        <div class="d-flex justify-content-end mt-1">
+          <span class="badge border border-primary text-primary">Savoir plus</span>
+
+          <div class="detail mt-2">
+
+            <% if art.status %>
+            <p class="fw-semibold mb-1">
+              Version en vigueur depuis <span class="text-secondary"><%= art.french_start_date %></span>
+            </p>
+            <% else %>
+            <p class="fw-semibold mb-1">
+              Abrogé <span class="text-danger-emphasis"><%= art.french_end_date %></span>
+            </p>
+            <% end %>
+            <p class="mt-1">
+              Consulter versions historiques en <a href="<%= "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI0000#{art.ref_num}" %>" >Légifrance</a>
+            </p>
+
+          </div>
+        </div>
       </li>
-      <li>
-        testtest
-      </li>
-      <li>
-        testtest
-      </li>
-      <li>
-        testtest
-      </li>
+
+      <% end %>
   </ul>
 
 <% end %>
 
 
 
+</div>
+
+<div class="modal fade" id="staticBackdrop" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <%= render "articles/article" %>
+    </div>
+  </div>
 </div>

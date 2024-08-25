@@ -4,15 +4,15 @@
 }
 
 .list-strip li {
+  position: relative;
   @extend .list-group-item;
-  @extend .list-group-item-action;
 }
 
 .list-strip li:nth-of-type(even) {
-  @extend .list-group-item-primary;
+  background-color: tint-color($primary, 90%) !important;
 }
 
-.list-strip a {
+.list-strip a.internal-link {
   text-decoration: none;
   transition: all ease 0.5s;
   @extend .badge;
@@ -20,6 +20,89 @@
   @extend .text-primary;
 }
 
-.list-strip a:hover {
-  color: $black;
+.list-strip a {
+  text-decoration: none;
+  transition: all ease 0.5s;
+  @extend .badge;
+  @extend .bg-secondary-subtle;
+  @extend .text-secondary;
+}
+
+
+/* Ensure that icons are positioned correctly */
+.list-strip .toggle-button {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.list-strip .toggle-button i {
+  position: absolute;
+  transition: transform 0.5s ease, opacity 0.5s ease, visibility 0.5s ease;
+  font-size: 24px;
+  color: $primary;
+}
+
+/* Hide the 'up' icon by default - "collapsed" */
+.list-strip .icon-up {
+  visibility: hidden;
+  /* Hide element from view but keep space for transition */
+  opacity: 0;
+}
+
+.list-strip .expanded .icon-down,
+.list-strip .expanded span.badge {
+  transform: rotate(180deg);
+  visibility: hidden;
+  opacity: 0;
+}
+
+.list-strip .expanded .detail {
+  display: block;
+}
+
+.list-strip .expanded .icon-up {
+  visibility: visible;
+  opacity: 1;
+  transform: rotate(0deg);
+}
+
+.list-strip .collapsed .icon-up {
+  transform: roate(180deg);
+  opacity: 0;
+  visibility: hidden;
+}
+
+.list-strip .collapsed .icon-down,
+.list-strip .collapsed span.badge {
+  visibility: visible;
+  opacity: 1;
+  transform: rotate(0deg);
+}
+
+.list-strip .collapsed .detail {
+  display: none;
+}
+
+.text-content {
+  max-height: 20em;
+  overflow: hidden;
+  transition: max-height 0.5s ease, opacity 0.5s ease;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+}
+
+.collapsed .text-content {
+  line-clamp: 5;
+  -webkit-line-clamp: 5;
+  max-height: 20em;
+}
+
+.expanded .text-content {
+  line-clamp: unset;
+  -webkit-line-clamp: unset;
+  max-height: 200em;
 }

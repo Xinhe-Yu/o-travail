@@ -9,7 +9,7 @@ gem "rails", "~> 7.1.4"
 gem "sprockets-rails"
 
 # Use postgresql as the database for Active Record
-gem "pg", "~> 1.1"
+gem "pg"
 
 gem 'pg_search'
 
@@ -56,6 +56,7 @@ gem "tqdm"
 gem "ruby-openai"
 gem "actioncable-enhanced-postgresql-adapter"
 gem "solid_queue"
+gem "neighbor"
 
 group :development, :test do
   gem "dotenv-rails"

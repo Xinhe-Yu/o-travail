@@ -180,6 +180,8 @@ GEM
     msgpack (1.7.2)
     multipart-post (2.4.1)
     mutex_m (0.2.0)
+    neighbor (0.4.0)
+      activerecord (>= 6.1)
     net-http (0.4.1)
       uri
     net-imap (0.4.14)
@@ -324,7 +326,7 @@ GEM
 
 PLATFORMS
   arm64-darwin
-  x86_64-darwin
+  x86_64-darwin-22
   x86_64-linux
 
 DEPENDENCIES
@@ -340,7 +342,8 @@ DEPENDENCIES
   font-awesome-sass (~> 6.1)
   importmap-rails
   jbuilder
-  pg (~> 1.1)
+  neighbor
+  pg
   pg_search
   puma (>= 5.0)
   rails (~> 7.1.4)

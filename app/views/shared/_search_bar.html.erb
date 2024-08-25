@@ -1,4 +1,5 @@
-<%= form_with url:"#", method: :get, class:"form-search mb-5", data: { controller: "search-history", action: "submit->search-history#registerHistory focus->search-history#filterHistory" } do %>
+<% search_word = search_word || "" %>
+<%= form_with url: articles_path, method: :get, class:"form-search mb-5", data: { controller: "search-history", action: "submit->search-history#registerHistory focus->search-history#filterHistory" } do %>
   <div class="input-group border border-2">
     <span class="input-group-text">
       <i class="fa-solid fa-magnifying-glass text-primary"></i>
@@ -8,9 +9,9 @@
       class: "form-control ps-1",
       style: "border-left:none;text-overflow: ellipsis",
       placeholder: "Mot-clé, référence, terme...",
-      data: { search_history_target: "input", action: "keyup->search-history#filterHistory" }
-       %>
-
+      data: { search_history_target: "input", action: "keyup->search-history#filterHistory" },
+      value: search_word
+      %>
       <%= submit_tag "Rechercher", name:"",
       class: "input-group-text btn btn-primary"%>
   </div>

@@ -1,40 +1,56 @@
 <div class="navbar navbar-expand-sm navbar-light shadow-sm">
   <div class="container-fluid">
+
     <%= link_to root_path, class: "navbar-brand d-flex align-items-end" do %>
       <%= image_tag "t_circle_outline_icon.svg" %>
       <span class="fw-bold fs-3">ravail</span>
     <% end %>
 
     <% if user_signed_in? %>
+    <button class="avatar d-sm-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <i class="fa-solid fa-circle-user text-primary"></i>
+    </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto">
             <li class="nav-item active">
-              <%= link_to "Home", root_path, class: "nav-link" %>
+              <%= link_to root_path, class:"nav-link" do %>
+                <i class="fa-solid fa-layer-group d-sm-none"></i> Offres
+              <% end %>
             </li>
             <li class="nav-item">
-              <%= link_to "Chatbot", "#", class: "nav-link" %>
+              <%= link_to "#", class:"nav-link" do %>
+                <i class="fa-regular fa-comments d-sm-none"></i> Chatbot
+              <% end %>
             </li>
             <li class="nav-item">
-              <%= link_to "Signets", "#", class: "nav-link" %>
+              <%= link_to "#", class:"nav-link" do %>
+              <i class="fa-regular fa-bookmark d-sm-none"></i> Signets
+              <% end %>
+            </li>
+            <li class="nav-item d-sm-none">
+                <%= link_to destroy_user_session_path, data: {turbo_method: :delete}, class:"nav-link" do %>
+                  <i class="fa-solid fa-right-from-bracket"></i> Déconnexion
+                <% end %>
             </li>
             <li class="nav-item dropdown">
 
-            <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a href="#" class="avatar d-none d-sm-block" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <i class="fa-solid fa-circle-user text-primary"></i>
             </a>
 
-              <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+              <div class="dropdown-menu dropdown-menu-end " aria-labelledby="navbarDropdown">
                 <%= link_to destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" do %>
-                  <i class="fa-solid fa-right-from-bracket"></i> Log out
+                  <i class="fa-solid fa-right-from-bracket"></i> Déconnexion
                 <% end %>
               </div>
             </li>
+                  </ul>
+    </div>
       <% else %>
       <%= link_to new_user_session_path, class:"avatar" do %>
-        <i class="fa-solid fa-circle-user"></i>
+        <i class="fa-regular fa-circle-user"></i>
       <% end %>
     <% end %>
-      </ul>
-    </div>
+
   </div>
 </div>

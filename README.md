@@ -1,24 +1,3 @@
-# README
+# O'Travail
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Welcome to the **O'Travail** repository, a project built using Ruby on Rails (7.1). This site serves as an AI-assisted search engine for the French Labor Law (*Code du Travail*).

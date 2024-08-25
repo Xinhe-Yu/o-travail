@@ -1,0 +1,36 @@
+<div class="container pt-3">
+  <%= render "shared/search_bar", search_word: @search_word %>
+
+  <% if true %>
+
+    <% plural_s = @length > 1 ? "s" : "" %>
+    <p> <%= "#{@articles.length} résultat#{plural_s} trouvé#{plural_s}" %></p>
+
+    <ul class="list-strip">
+      <% @title = "Titre V : Articulation des conventions et accords ; Chapitre IV : Rapports entre conventions et accords collectifs de travail et contrat de travail" %>
+      <% @number = "D2254-24"  %>
+      <% @html = "<p align='left'>Le bénéficiaire du parcours d'accompagnement personnalisé qui, au terme de celui-ci est à la recherche d'un emploi, peut bénéficier de l'allocation d'assurance mentionnée à l'article <a href='/affichCodeArticle.do?cidTexte=LEGITEXT000006072050&idArticle=LEGIARTI000006903819&dateTexte=&categorieLien=cid'>L. 5421-1 </a> conformément aux accords mentionnés à l'article <a href='/affichCodeArticle.do?cidTexte=LEGITEXT000006072050&idArticle=LEGIARTI000006903842&dateTexte=&categorieLien=cid'>L. 5422-20</a>. <br/><br/>La durée d'indemnisation dont bénéficie l'intéressé dans ce cadre est réduite du nombre de jours indemnisés au titre du parcours d'accompagnement personnalisé.</p>" %>
+
+
+      <li data-controller="show-article">
+        <h5 class="fw-bold"><%= @number %></h5>
+        <p class="fs-7 text-black-50 mb-2">Livre II - Titre V - Chapitre IV</p>
+        <h5 class="text-primary fw-semibold">Rapports entre conventions et accords collectifs de travail et contrat de travail</h5>
+        <%= @html.html_safe %>
+      </li>
+      <li>
+        testtest
+      </li>
+      <li>
+        testtest
+      </li>
+      <li>
+        testtest
+      </li>
+  </ul>
+
+<% end %>
+
+
+
+</div>

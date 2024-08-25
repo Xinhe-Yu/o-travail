@@ -11,7 +11,7 @@ export default class extends Controller {
   initHistoryContainer() {
     this.$historyContainer.empty();
     this.history.forEach(item => {
-      this.$historyContainer.append(`<li class="${this.liClass}">${item}</li>`);
+      this.$historyContainer.append(`<a href="/articles?key_word=${item}" class="no-a-style"><li class="${this.liClass}">${item}</li></a>`);
     });
     this.loadHistory();
   }
@@ -55,7 +55,7 @@ export default class extends Controller {
     $historyContainer.empty();
 
     filteredHistory.forEach(item => {
-      $historyContainer.append(`<li class="${this.liClass}">${item}</li>`);
+      $historyContainer.append(`<a href="/articles?key_word=${item}" class="no-a-style"><li class="${this.liClass}">${item}</li></a>`);
     });
 
     $historyContainer.toggle(filteredHistory.length > 0);

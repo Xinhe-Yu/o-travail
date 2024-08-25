@@ -4,7 +4,8 @@ class ApplicationController < ActionController::Base
   before_action :check_profile
 
   def configure_permitted_parameters
-    keys = %i[username birthday terminology_preference profession experience 'birthday(3i)' 'birthday(2i)' 'birthday(1i)']
+    keys = %i[username birthday terminology_preference profession experience
+              'birthday(3i)' 'birthday(2i)' 'birthday(1i)']
     devise_parameter_sanitizer.permit(:sign_up, keys:)
     devise_parameter_sanitizer.permit(:account_update, keys:)
   end

@@ -56,6 +56,7 @@ gem "tqdm"
 gem "ruby-openai"
 gem "actioncable-enhanced-postgresql-adapter"
 gem "solid_queue"
+gem "neighbor"
 
 group :development, :test do
   gem "dotenv-rails"

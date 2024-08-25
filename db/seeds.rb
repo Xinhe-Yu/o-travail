@@ -1,7 +1,7 @@
 require 'tqdm'
 Article.destroy_all
 
-file_path = "db/100code_du_travail.json"
+file_path = "db/code_du_travail.json"
 file = File.read(file_path)
 
 def clean_path(raw)

@@ -6,7 +6,9 @@
       <p class="fs-7 fw-bold">Aucun résultat ne correspond à votre recherche !</p>
       <p class="mb-1">Essayez un autre terme de recherche</p>
       <p class="my-1">ou</p>
-      <a class="mt-1 btn btn-outline-primary fw-semibold">Laissez notre AI vous guider vers des réponses précises</a>
+      <%= link_to questions_path, class:"mt-1 btn btn-outline-primary fw-semibold" do %>
+        Laissez notre AI vous guider vers des réponses précises
+      <% end %>
     </div>
   <% else %>
 

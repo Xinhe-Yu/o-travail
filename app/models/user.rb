@@ -5,7 +5,25 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :questions
 
-  # profession ["Employé", "Employeur / Responsable RH", "Avocat / Conseiller Juridique", "Syndicaliste / Représentant du Personnel"]
-  # terminology_preference ["Accessible / Simplifié", "Juridique / Technique", "Historique / Contextuel"]
-  # experience ["Débutant", "Professionnels Expérimentés"]
+  PROFESSION = ["Employé", "Employeur / Responsable RH", "Avocat / Conseiller Juridique", "Syndicaliste / Représentant du Personnel"]
+  TERMINOLOGY_PREFERENCE = ["Accessible / Simplifié", "Juridique / Technique", "Historique / Contextuel"]
+  EXPERIENCE = ["Débutant", "Professionnels Expérimentés"]
+
+  def experience_level
+    return if experience.nil?
+
+    "#{EXPERIENCE[experience]} comme son niveau d'experience "
+  end
+
+  def profession_level
+    return if profession.nil?
+
+    "#{PROFESSION[profession]} comme sa profession"
+  end
+
+  def terminology_preference_level
+    return if terminology_preference.nil?
+
+    TERMINOLOGY_PREFERENCE[terminology_preference]
+  end
 end

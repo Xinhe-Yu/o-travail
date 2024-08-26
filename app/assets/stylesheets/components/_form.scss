@@ -76,20 +76,16 @@ legend ~ div.form-check:first-of-type {
   justify-content: space-between;
   flex-grow: 1;
 
-  h1 {
-    border-bottom: 1px solid $gray-200;
-    margin-bottom: 0;
-    padding: 1rem;
-  }
-
   #questions {
+    width: 100%;
     height: 100%;
-    overflow: scroll;
+    overflow-y: scroll;
     padding: 1rem;
   }
 
   .question {
     display: flex;
+    width:100%;
     flex-direction: column;
   }
 
@@ -104,18 +100,18 @@ legend ~ div.form-check:first-of-type {
   }
 
   .user-question {
-    align-self: flex-start;
-    background: $blue;
-    color: $light-gray;
+    align-self: flex-end;
+    background: $primary;
+    color: $white;
   }
 
   .ai-answer {
-    align-self: flex-end;
-    background: $gray-200;
+    align-self: flex-start;
+    background: $white;
   }
 
   #new_question {
-    border-top: 1px solid $gray-200;
+    border-top: 1px solid $white;
     padding: 1rem;
 
     .form-group {

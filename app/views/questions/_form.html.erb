@@ -1,9 +1,9 @@
-<%= simple_form_for question do |f| %>
-  <div class="input-group mb-3 w-100">
+<%= simple_form_for question, html: { data: { controller: "reset-form", action: "turbo:submit-end->reset-form#reset keyup->reset-form#handleKeyup" }} do |f| %>
+  <div class="input-group mb-3 w-100 border border-2">
     <div class="form-floating">
-      <%= f.input :user_question, label: false, wrapper: false %>
-      <%= f.label :user_question, "Your question" %>
+      <%= f.input :user_question, label: false, wrapper: false, data: { target: "reset-form.input" } %>
+      <%= f.label :user_question, "Votre question" %>
     </div>
-    <%= f.submit "Ask", id: "new-question-button", class: "btn btn-primary" %>
+    <%= f.submit "Envoyer", id: "new-question-button", class: "btn btn-primary" %>
   </div>
 <% end %>

@@ -6,7 +6,7 @@
 <div class="p-3 border border-2  mb-5 rounded trend">
   <i class="fa-solid fa-arrow-trend-up text-primary"></i>
   Explorez des thèmes comme : <br>
-  <% keywords = ["congés payés", "démission", "L.1221-1", "grève", "CPF"] %>
+  <% keywords = ["congés payés", "démission", "L.1221-1", "télétravail", "CPF"] %>
   <% keywords.each do |keyword| %>
     <%= link_to "/articles?key_word=#{keyword}", class:"no-a-style" do %>
       <span class="badge bg-primary-subtle text-primary"><%= keyword %></span>
@@ -16,7 +16,7 @@
 
 <div class="row cards">
   <div class="col-6">
-    <%= link_to "#", class:"no-a-style" do %>
+    <%= link_to questions_path, class:"no-a-style" do %>
       <div class="card h-100 border border-2 text-center p-3">
         <div class="card-title text-center fs-1 text-secondary">
           <i class="fa-regular fa-comments"></i>
@@ -29,12 +29,12 @@
     <% end %>
   </div>
   <div class="col-6">
-    <%= link_to "#", class:"no-a-style" do %>
+    <%= link_to categories_path, class:"no-a-style" do %>
       <div class="card h-100 border border-2 text-center p-3">
         <div class="card-title text-center fs-1 text-secondary">
           <i class="fa-solid fa-folder-open"></i>
         </div>
-        <h6 class="card-subtitle fw-semibold">Je veux consulter <div class="display-inline">en catégorie</div></h6>
+        <h6 class="card-subtitle fw-semibold">Je veux consulter <div class="display-inline">par sujet</div></h6>
       </div>
     <% end %>
   </div>

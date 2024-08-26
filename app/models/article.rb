@@ -20,7 +20,7 @@ class Article < ApplicationRecord
   end
 
   def self.normalize_art_num(input_art_num)
-    input_art_num.gsub(/[\.|\W]/, "")
+    input_art_num.gsub(/[\.|\s]/, "")
   end
 
   # Search method that uses the normalized code
@@ -46,7 +46,7 @@ class Article < ApplicationRecord
   FRENCH_MONTHS = %w[janvier février mars avril mai juin juillet août septembre octobre novembre décembre]
 
   def french_date(date)
-    day = date.strftime("%-d")
+    day = date.strftime("%-d") == "1" ? "#{date.strftime("%-d")}er" : date.strftime("%-d")
     month = FRENCH_MONTHS[date.month - 1]
     year = date.strftime("%Y")
     "le #{day} #{month} #{year}"

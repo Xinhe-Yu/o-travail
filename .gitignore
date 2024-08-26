@@ -33,6 +33,7 @@
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
+/config/databse.yml
 # Ignore .env file containing credentials.
 .env*
 

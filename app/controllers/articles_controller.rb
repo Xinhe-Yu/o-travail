@@ -23,10 +23,12 @@ class ArticlesController < ApplicationController
 
     code_pattern = /^([L|l]?'?article\W?)?([L|D|R]\.\W?\d{1,4}(-\d{1,3})*)/
     words = params[:key_word].split.map do |word|
+      return "Compte personnel de formation" if word == "CPF"
+
       match = word.match(code_pattern)
       return word unless match
 
-      match[2].gsub!(/[\.|\W]/, "")
+      match[2].gsub!(/[\.|\s]/, "")
     end
     words.join(" ")
   end

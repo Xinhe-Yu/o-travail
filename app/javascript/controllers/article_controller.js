@@ -12,7 +12,7 @@ export default class extends Controller {
 
   initLinkstyle() {
     const links = this.element.querySelectorAll("a");
-    const rp = /^([L|l]'article\W)?[L|D|R]\.\W\d{1,4}(-\d{1,3})*/;
+    const rp = /^([L|l]?'?articles?\W)?[L|D|R]\.\W\d{1,4}(-\d{1,3})*(\W?.{0,2}\W?)?([L|D|R]\.\W\d{1,4}(-\d{1,3})*)?$/;
 
     links.forEach(link => {
       if (rp.test(link.textContent.trim())) {

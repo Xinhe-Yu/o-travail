@@ -343,7 +343,7 @@ DEPENDENCIES
   importmap-rails
   jbuilder
   neighbor
-  pg (~> 1.1)
+  pg
   pg_search
   puma (>= 5.0)
   rails (~> 7.1.4)

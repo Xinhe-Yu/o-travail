@@ -108,6 +108,22 @@ legend ~ div.form-check:first-of-type {
   .ai-answer {
     align-self: flex-start;
     background: $white;
+    position: relative;
+  }
+
+  .ai-answer i {
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    font-size: 20px;
+    transition: all ease 0.5s;
+    cursor: pointer;
+    transform: rotate(45deg);
+  }
+
+  .ai-answer i:hover {
+    position: absolute;
+    font-size: 22px;
   }
 
   #new_question {

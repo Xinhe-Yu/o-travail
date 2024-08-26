@@ -5,12 +5,13 @@
 <div class="row justify-content-center">
   <div class="col-xl-8">
     <h2>Complétez votre profil</h2>
+    <h3>Pour mieux s'adapter à vos besoins</h3>
     <%= simple_form_for(@user_profile,
                         url: user_profiles_path,
                         method: :post) do |f| %>
       <div class="form-group mb-3">
         <% default_date = 14.years.ago.to_date %>
-        <%= f.label :birthday, class:"form-label" %>
+        <%= f.label "Date de naissance", class:"form-label" %>
         <div class="form-control date-select">
             <%= f.date_select :birthday, start_year: Time.current.year - 120, end_year: Time.current.year - 14, default: default_date, order: [:day, :month, :year] %>
         </div>
@@ -38,7 +39,7 @@
       </div>
 
       <div class="form-group mb-3">
-        <%= f.label :terminology_preference, class:"form-label" %>
+        <%= f.label "Préférence au niveau terminologie", class:"form-label" %>
         <div class="form-control">
           <% terminology_preference.each_with_index do |status, index| %>
             <%= f.radio_button :terminology_preference, index, id: "terminology_preference_#{index}", class:"btn-check" %>

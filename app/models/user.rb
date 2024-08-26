@@ -3,7 +3,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-  has_many :questions
+  has_many :questions, dependent: :destroy
 
   PROFESSION = ["Employé", "Employeur / Responsable RH", "Avocat / Conseiller Juridique", "Syndicaliste / Représentant du Personnel"]
   TERMINOLOGY_PREFERENCE = ["Accessible / Simplifié", "Juridique / Technique", "Historique / Contextuel"]

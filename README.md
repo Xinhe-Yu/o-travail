@@ -16,7 +16,7 @@ Welcome to the **O'Travail** repository, a project built using Ruby on Rails (7.
 - **pg-search**: This Ruby gem facilitates powerful search capabilities within the PostgreSQL database. It enables the searching of multiple keywords across different columns simultaneously, enhancing the search experience.
 
 ## Embedding
-- **PostgreSQL Vector Extension**: The project uses PostgreSQL's vector extension to handle text embeddings. This integration allows the application to send requests to OpenAI's `text-embedding-small` model. For more engineering details, please refer to `db/seed.rb`.
+- **PostgreSQL Vector Extension**: The project uses PostgreSQL's vector extension to handle text embeddings. This integration allows the application to send requests to OpenAI's `text-embedding-small` model. For more engineering details, please refer to `db/seed.rb` and `app/model/article.rb`.
 
 ## Find the Vector
 - **Neighbor**: This component is responsible for efficiently finding and managing vectors in the database, optimizing search accuracy and performance.
